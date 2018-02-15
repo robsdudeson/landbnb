@@ -18,13 +18,13 @@ Types::RentalType = GraphQL::ObjectType.define do
   field :country, !types.String
   field :postal_code, types.String
 
-  field :owner, Types::UserType do
-    resolve -> (obj, args, context) { RecordLoader.for(User).load(obj.user_id) }
-  end
+  #field :owner, Types::UserType do
+  #  resolve -> (obj, args, context) { RecordLoader.for(User).load(obj.user_id) }
+  #end
 
-  field :bookings, !types[Types::BookingType] do
-    preload :bookings
-    resolve -> (obj, args, ctx) { obj.bookings }
-  end
+  #field :bookings, !types[Types::BookingType] do
+  #  preload :bookings
+  #  resolve -> (obj, args, ctx) { obj.bookings }
+  #end
 
 end
